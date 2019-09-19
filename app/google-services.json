@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "428021724697",
+    "firebase_url": "https://midterrm.firebaseio.com",
+    "project_id": "midterrm",
+    "storage_bucket": "midterrm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428021724697:android:fba0bd8c174a09a3265c88",
+        "android_client_info": {
+          "package_name": "com.example.midterrm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428021724697-b6ve8t86terbpic027glvg23p1dk43ad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.midterrm",
+            "certificate_hash": "40e9cc093649fce602a2dd4863bd9f32e36121c3"
+          }
+        },
+        {
+          "client_id": "428021724697-u1n9gfokjk903s54bfjpd17dpaaiij99.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB736Pqa3w2hZYcsxWZZrlcrF77Z1-iCt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428021724697-u1n9gfokjk903s54bfjpd17dpaaiij99.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
