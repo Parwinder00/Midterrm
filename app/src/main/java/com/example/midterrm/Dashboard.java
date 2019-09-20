@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +21,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,10 +34,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Dashboard extends Fragment {
+public class   Dashboard extends Fragment {
 
     TextView txt_dashname,txt_wename,txt_mintemp,txt_maxtemp,txt_acttemp,txt_humidity,txt_predect;
+    Button logOut;
     FirebaseUser user;
+    FirebaseAuth mAuth;
     FirebaseFirestore db;
     ImageView img_we;
     ArrayList<ConsolidatedWeather> weathers;
@@ -50,7 +55,7 @@ public class Dashboard extends Fragment {
         super.onCreate(savedInstanceState);
         user = getArguments().getParcelable("user");
         db = FirebaseFirestore.getInstance();
-
+        mAuth = FirebaseAuth.getInstance();
         System.out.println("Dashboard on Create Called!");
 
     }
@@ -72,6 +77,7 @@ public class Dashboard extends Fragment {
         txt_mintemp = view.findViewById(R.id.txt_mintemp);
         txt_maxtemp = view.findViewById(R.id.txt_maxtemp);
         txt_acttemp = view.findViewById(R.id.txt_actemp);
+        logOut       = view.findViewById(R.id.logout);
 
         txt_humidity = view.findViewById(R.id.txt_humidity);
         txt_predect = view.findViewById(R.id.txt_prec);
@@ -83,6 +89,18 @@ public class Dashboard extends Fragment {
         readFireStore();
         getWeather();
 
+
+       logOut.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               mAuth.signOut();
+               Fragment fragment = new Loginscreen();
+               FragmentManager fm = getFragmentManager();
+               FragmentTransaction ft = fm.beginTransaction();
+               ft.replace(R.id.host_frag,fragment);
+               ft.commit();
+           }
+       });
     }
 
     @Override
